@@ -16,3 +16,11 @@ Add button to make divs clear after changing color, ask user for size
 
 */
 
+let boxDiv = document.createElement('div')
+boxDiv.id = 'outerBox'
+document.body.appendChild(boxDiv)
+
+let smallDiv = document.createElement('div')
+smallDiv.classList.add = 'innerBox'
+boxDiv.appendChild(smallDiv)
+

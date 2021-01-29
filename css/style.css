@@ -10,7 +10,24 @@
 /******************************************
 /* LAYOUT
 /*******************************************/
-outerBox
+body{
+  display: flex;
+}
+
+.innerBox{
+  height: 50px;
+  width: 50px;
+  background: red;
+}
+
+#outerBox{
+  margin: 0 auto;
+  height: 1000px;
+  width: 100%;
+  max-width: 1000px;
+  border: 1px solid black;
+}
+
 
 
 /******************************************
