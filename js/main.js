@@ -22,12 +22,18 @@ document.body.appendChild(boxDiv)
 
 
 
-
-function createDiv(){
+//Creates divs based on userInput
+function createDiv(userInput){
     let smallDiv = document.createElement('div')
     smallDiv.classList.add('innerBox')
     boxDiv.appendChild(smallDiv)
-    let sum = 998 / 16
+    let sum;
+    if(userInput === undefined){
+        sum = 998 / 16
+    } else {
+        sum = 998 / Number(userInput)
+    }
+    
     smallDiv.style.height = sum + 'px'
     smallDiv.style.width = sum + 'px'
 
@@ -37,14 +43,27 @@ function divSize(){
     
 }
 
-function rowaAndColumn(){
-    for (let i = 0; i < 16; i++) {
-        for (let x = 0; x < 15; x++) {
+function rowAndColumn(userInput){
+    let width = userInput
+    let height = userInput - 1
+
+    if(userInput === undefined){
+        for (let i = 0; i < 16; i++) {
+            for (let x = 0; x < 15; x++) {
+                createDiv()
+            }
             createDiv()
         }
-        createDiv()
+    } else {
+        for (let i = 0; i < width; i++) {
+            for (let x = 0; x < height; x++) {
+                createDiv(userInput)
+            }
+            createDiv(userInput)
+        }
     }
+    
 }
 
-rowaAndColumn()
+rowAndColumn(32)
 
