@@ -39,10 +39,7 @@ function createDiv(userInput){
 
 }
 
-function divSize(){
-    
-}
-
+//Creates the rows and columns of divs based on userinput, or default start of 16
 function rowAndColumn(userInput){
     let width = userInput
     let height = userInput - 1
@@ -65,5 +62,13 @@ function rowAndColumn(userInput){
     
 }
 
-rowAndColumn(32)
+rowAndColumn()
 
+
+//Allows the ouse to hover and change background color for the divs
+let innerBox = document.querySelectorAll('.innerBox')
+innerBox.forEach((element) => {
+    element.addEventListener('mouseover', () => {
+        element.style.background = 'black'
+    })
+})

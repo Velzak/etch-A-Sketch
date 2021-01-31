@@ -16,9 +16,8 @@ body{
 }
 
 .innerBox{
-
-  background: red;
-  border: 1px solid black;
+  background: white;
+  border: .5px solid black;
 }
 
 #outerBox{
