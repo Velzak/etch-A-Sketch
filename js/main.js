@@ -20,7 +20,31 @@ let boxDiv = document.createElement('div')
 boxDiv.id = 'outerBox'
 document.body.appendChild(boxDiv)
 
-let smallDiv = document.createElement('div')
-smallDiv.classList.add = 'innerBox'
-boxDiv.appendChild(smallDiv)
+
+
+
+function createDiv(){
+    let smallDiv = document.createElement('div')
+    smallDiv.classList.add('innerBox')
+    boxDiv.appendChild(smallDiv)
+    let sum = 998 / 16
+    smallDiv.style.height = sum + 'px'
+    smallDiv.style.width = sum + 'px'
+
+}
+
+function divSize(){
+    
+}
+
+function rowaAndColumn(){
+    for (let i = 0; i < 16; i++) {
+        for (let x = 0; x < 15; x++) {
+            createDiv()
+        }
+        createDiv()
+    }
+}
+
+rowaAndColumn()
 
