@@ -10,11 +10,9 @@ Add button to make divs clear after changing color, ask user for size
     -prompt connected to square amount to change squares 
 */
 
-let upperDiv = document.createElement('div');
-upperDiv.id = 'upperDiv';
+let upperDiv = document.createElement("div");
+upperDiv.id = "upperDiv";
 document.body.appendChild(upperDiv);
-
-
 
 let askUser = document.createElement("button");
 askUser.id = "clear";
@@ -23,6 +21,7 @@ upperDiv.appendChild(askUser);
 
 let boxDiv = document.createElement("div");
 boxDiv.id = "outerBox";
+boxDiv.classList.add("container");
 document.body.appendChild(boxDiv);
 
 //Creates divs based on userInput
@@ -39,11 +38,11 @@ function createDiv(userInput) {
 
   smallDiv.style.height = sum + "px";
   smallDiv.style.width = sum + "px";
-  smallDiv.style.background = 'white'
+  smallDiv.style.background = "white";
 }
 
 //Creates the rows and columns of divs based on userinput, or default start of 16
-function rowAndColumn(userInput) {
+function createGrid(userInput) {
   let width = userInput;
   let height = userInput - 1;
 
@@ -63,20 +62,35 @@ function rowAndColumn(userInput) {
     }
   }
 }
+//if nothing clicked, rows and columsn runs default, otherwise run with prompt return
+createGrid();
 
-rowAndColumn();
+function clearGrid() {
+  let elements = document.getElementsByClassName("innerBox");
+  while (elements.length > 0) {
+    elements[0].parentNode.removeChild(elements[0]);
+  }
+}
 
 //Creates event to click the clear button
-let getClear = document.querySelector('#clear')
-getClear.addEventListener('click', gridClear)
+let getClear = document.querySelector("#clear");
+getClear.addEventListener("click", gridClear);
 
 //function allows for the color of the square divs to turn back to white
-function gridClear(){
-    innerBox.forEach((element) => {
-        element.style.background = 'white'
-    })
-    //TODO:  Create prompt that will ask user for new input 
-   
+function gridClear() {
+  innerBox.forEach((element) => {
+    element.style.background = "white";
+  });
+  //TODO:  Create prompt that will ask user for new input
+  clearGrid();
+  let userInput = prompt("enter a new grid size:");
+  if (userInput < 100){
+    createGrid(userInput);
+  } else {
+      userInput = prompt('Enter a number from 1- 100 only')
+  }
+  
+
 }
 
 //Allows the mouse to hover and change background color for the divs
@@ -86,5 +100,3 @@ innerBox.forEach((element) => {
     element.style.background = "black";
   });
 });
-
-
