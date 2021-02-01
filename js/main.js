@@ -19,10 +19,10 @@ askUser.id = "clear";
 askUser.textContent = "Clear";
 upperDiv.appendChild(askUser);
 
-let colorPicker = document.createElement('button')
-colorPicker.id = 'colorpicker'
-colorPicker.textContent = 'Change Color'
-upperDiv.appendChild(colorPicker)
+let colorPicker = document.createElement("button");
+colorPicker.id = "colorpicker";
+colorPicker.textContent = "Change Color";
+upperDiv.appendChild(colorPicker);
 
 let boxDiv = document.createElement("div");
 boxDiv.id = "outerBox";
@@ -33,7 +33,6 @@ function createDiv(userInput) {
   let smallDiv = document.createElement("div");
   smallDiv.classList.add("innerBox");
   smallDiv.classList.add("container");
-  
 
   boxDiv.appendChild(smallDiv);
   let sum;
@@ -46,11 +45,9 @@ function createDiv(userInput) {
   smallDiv.style.height = sum + "px";
   smallDiv.style.width = sum + "px";
   smallDiv.style.background = "white";
-  
-  //Allows the mouse to hover and change background color for the divs
-  smallDiv.addEventListener('mouseenter', () => {
-    smallDiv.style.background = 'black'
-})
+  smallDiv.addEventListener("mouseenter", () => {
+    smallDiv.style.background = "black";
+  });
 }
 
 //Creates the rows and columns of divs based on userinput, or default start of 16
@@ -73,12 +70,9 @@ function createGrid(userInput) {
       createDiv(userInput);
     }
   }
-  
 }
 //if nothing clicked, rows and columsn runs default, otherwise run with prompt return
 createGrid();
-
-
 
 //Creates event to click the clear button
 let getClear = document.querySelector("#clear");
@@ -90,24 +84,22 @@ function gridClear() {
     element.style.background = "white";
   });
   //TODO:  Create prompt that will ask user for new input
-  
+
   let userInput = prompt("enter a new grid size:");
-  if (userInput <= 100 && userInput >= 1){
+  if (userInput <= 100 && userInput >= 1) {
     clearGrid();
     createGrid(userInput);
-
   } else {
-      alert('Please Enter a Number from 1 - 100')
+    alert("Please Enter a Number from 1 - 100");
   }
-  
-  
 }
 
 function clearGrid() {
-    let elements = document.getElementsByClassName("innerBox");
-    while (elements.length > 0) {
-      elements[0].parentNode.removeChild(elements[0]);
-    }
+  let elements = document.getElementsByClassName("innerBox");
+  while (elements.length > 0) {
+    elements[0].parentNode.removeChild(elements[0]);
   }
+}
 
-
+//Allows the mouse to hover and change background color for the divs
+let innerBox = document.querySelectorAll(".container");
