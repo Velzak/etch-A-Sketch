@@ -12,18 +12,33 @@
 /*******************************************/
 body{
  display: flex;
+ justify-content: center;
+ align-items: center;
  flex-direction: column;
+}
+
+
+button{
+  width: 10rem;
+  height: 3rem;
+  margin: 30px;
+  border-radius: 2rem;
+  outline: none;
+}
+
+div{
+  background: white;
 }
 
 .innerBox{
   background: white;
-  border: .5px solid black;
+  border: 1px solid black;
 }
 
 #outerBox{
   margin: 0 auto;
-  height: 1000px;
-  width: 1000px;
+  height: 800px;
+  width: 800px;
   border: 1px solid black;
   display: flex;
   flex-flow: row wrap;  

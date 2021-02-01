@@ -16,59 +16,71 @@ Add button to make divs clear after changing color, ask user for size
 
 */
 
-let boxDiv = document.createElement('div')
-boxDiv.id = 'outerBox'
-document.body.appendChild(boxDiv)
+let upperDiv = document.createElement('div');
+upperDiv.id = 'upperDiv';
+document.body.appendChild(upperDiv);
 
 
+
+let askUser = document.createElement("button");
+askUser.id = "clear";
+askUser.textContent = "Clear";
+upperDiv.appendChild(askUser);
+
+let boxDiv = document.createElement("div");
+boxDiv.id = "outerBox";
+document.body.appendChild(boxDiv);
 
 //Creates divs based on userInput
-function createDiv(userInput){
-    let smallDiv = document.createElement('div')
-    smallDiv.classList.add('innerBox')
-    boxDiv.appendChild(smallDiv)
-    let sum;
-    if(userInput === undefined){
-        sum = 998 / 16
-    } else {
-        sum = 998 / Number(userInput)
-    }
-    
-    smallDiv.style.height = sum + 'px'
-    smallDiv.style.width = sum + 'px'
+function createDiv(userInput) {
+  let smallDiv = document.createElement("div");
+  smallDiv.style.background = 'white'
+  smallDiv.classList.add("innerBox");
+  boxDiv.appendChild(smallDiv);
+  let sum;
+  if (userInput === undefined) {
+    sum = 798 / 16;
+  } else {
+    sum = 798 / Number(userInput);
+  }
 
+  smallDiv.style.height = sum + "px";
+  smallDiv.style.width = sum + "px";
 }
 
 //Creates the rows and columns of divs based on userinput, or default start of 16
-function rowAndColumn(userInput){
-    let width = userInput
-    let height = userInput - 1
+function rowAndColumn(userInput) {
+  let width = userInput;
+  let height = userInput - 1;
 
-    if(userInput === undefined){
-        for (let i = 0; i < 16; i++) {
-            for (let x = 0; x < 15; x++) {
-                createDiv()
-            }
-            createDiv()
-        }
-    } else {
-        for (let i = 0; i < width; i++) {
-            for (let x = 0; x < height; x++) {
-                createDiv(userInput)
-            }
-            createDiv(userInput)
-        }
+  if (userInput === undefined) {
+    for (let i = 0; i < 16; i++) {
+      for (let x = 0; x < 15; x++) {
+        createDiv();
+      }
+      createDiv();
     }
-    
+  } else {
+    for (let i = 0; i < width; i++) {
+      for (let x = 0; x < height; x++) {
+        createDiv(userInput);
+      }
+      createDiv(userInput);
+    }
+  }
 }
 
-rowAndColumn()
+rowAndColumn();
 
 
-//Allows the ouse to hover and change background color for the divs
-let innerBox = document.querySelectorAll('.innerBox')
+
+//Allows the mouse to hover and change background color for the divs
+let innerBox = document.querySelectorAll(".innerBox");
 innerBox.forEach((element) => {
-    element.addEventListener('mouseover', () => {
-        element.style.background = 'black'
-    })
-})
+  element.addEventListener("mouseover", () => {
+    element.style.background = "black";
+  });
+});
+
+
+
