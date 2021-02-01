@@ -1,19 +1,13 @@
 /*
-
 Make a series of divs, 16 x 16 
     -use DOM manipulation to create divs in row
     -make rows same length as width
-
 Use mouse hover to manipulate color of divs
     -make background color change from white to black
     -
-
 Add button to make divs clear after changing color, ask user for size
     -eventlistener waiting for click to make divs change color
-
     -prompt connected to square amount to change squares 
-
-
 */
 
 let upperDiv = document.createElement('div');
@@ -34,7 +28,6 @@ document.body.appendChild(boxDiv);
 //Creates divs based on userInput
 function createDiv(userInput) {
   let smallDiv = document.createElement("div");
-  smallDiv.style.background = 'white'
   smallDiv.classList.add("innerBox");
   boxDiv.appendChild(smallDiv);
   let sum;
@@ -46,6 +39,7 @@ function createDiv(userInput) {
 
   smallDiv.style.height = sum + "px";
   smallDiv.style.width = sum + "px";
+  smallDiv.style.background = 'white'
 }
 
 //Creates the rows and columns of divs based on userinput, or default start of 16
@@ -72,7 +66,18 @@ function rowAndColumn(userInput) {
 
 rowAndColumn();
 
+//Creates event to click the clear button
+let getClear = document.querySelector('#clear')
+getClear.addEventListener('click', gridClear)
 
+//function allows for the color of the square divs to turn back to white
+function gridClear(){
+    innerBox.forEach((element) => {
+        element.style.background = 'white'
+    })
+    //TODO:  Create prompt that will ask user for new input 
+   
+}
 
 //Allows the mouse to hover and change background color for the divs
 let innerBox = document.querySelectorAll(".innerBox");
@@ -81,6 +86,5 @@ innerBox.forEach((element) => {
     element.style.background = "black";
   });
 });
-
 
 
