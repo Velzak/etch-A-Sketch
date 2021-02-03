@@ -19,14 +19,48 @@ askUser.id = "clear";
 askUser.textContent = "Clear";
 upperDiv.appendChild(askUser);
 
-let randomColor = document.createElement('button')
-randomColor.id = 'randomColor'
-randomColor.textContent = 'Random Color'
-upperDiv.appendChild(randomColor)
+let randomColor = document.createElement("button");
+randomColor.id = "randomColor";
+randomColor.textContent = "Random Color";
+upperDiv.appendChild(randomColor);
 
 let boxDiv = document.createElement("div");
 boxDiv.id = "outerBox";
 document.body.appendChild(boxDiv);
+
+let inputBox = document.createElement("input");
+inputBox.id = "gridSize";
+upperDiv.appendChild(inputBox);
+
+let buttonGrid = document.createElement("button");
+buttonGrid.id = "buttons";
+buttonGrid.textContent = "Change Size";
+upperDiv.appendChild(buttonGrid);
+
+//Get a Grid Size from user
+let userInput;
+
+if (userInput === undefined){
+    userInput = 16
+} else {
+    userInput = document.querySelector("#gridSize").value;
+}
+
+document.querySelector("#buttons").addEventListener("click", changeGridSize);
+function changeGridSize() {
+    
+  userInput = document.querySelector("#gridSize").value;
+
+  if (userInput > 100 || userInput < 1){
+      alert('Enter a number between 1 and 100')
+      userInput = 16
+  } else {
+    clearGrid();
+    createGrid(userInput);
+    return userInput
+  }
+  
+}
 
 //Creates divs based on userInput
 function createDiv(userInput, color) {
@@ -49,10 +83,14 @@ function createDiv(userInput, color) {
     smallDiv.addEventListener("mouseenter", () => {
       smallDiv.style.background = "black";
     });
-  } else{
+  } else {
     smallDiv.addEventListener("mouseenter", () => {
-        smallDiv.style.background = `rgb(${Math.floor(Math.random() * 255) },${Math.floor(Math.random() * 255) },${Math.floor(Math.random()* 255) })`;
-      });
+      smallDiv.style.background = `rgb(${Math.floor(
+        Math.random() * 255
+      )},${Math.floor(Math.random() * 255)},${Math.floor(
+        Math.random() * 255
+      )})`;
+    });
   }
 }
 
@@ -64,7 +102,7 @@ function createGrid(userInput, color) {
   if (userInput === undefined) {
     for (let i = 0; i < 16; i++) {
       for (let x = 0; x < 15; x++) {
-        createDiv( 16 , color);
+        createDiv(16, color);
       }
       createDiv(16, color);
     }
@@ -89,14 +127,8 @@ function gridClear() {
   innerBox.forEach((element) => {
     element.style.background = "white";
   });
-
-  let userInput = prompt("enter a new grid size:");
-  if (userInput <= 100 && userInput >= 1) {
     clearGrid();
     createGrid(userInput);
-  } else {
-    alert("Please Enter a Number from 1 - 100");
-  }
 }
 
 function clearGrid() {
@@ -110,21 +142,14 @@ let innerBox = document.querySelectorAll(".innerBox");
 
 //Create button to change color to random
 
-let getRandomColor = document.querySelector('#randomColor')
-getRandomColor.addEventListener('click', getColor)
+let getRandomColor = document.querySelector("#randomColor");
+getRandomColor.addEventListener("click", getColor);
 
-function getColor(){
-    innerBox.forEach((element) => {
-        element.style.background = "white";
-      });
-    let bool = true
-    let userInput = prompt("enter a new grid size:");
-    if (userInput <= 100 && userInput >= 1) {
-      clearGrid();
-      createGrid(userInput, bool);
-    } else {
-      alert("Please Enter a Number from 1 - 100");
-    }
-} 
-
-
+function getColor() {
+  innerBox.forEach((element) => {
+    element.style.background = "white";
+  });
+  let color = true;
+  clearGrid();
+  createGrid(userInput, color);
+}
