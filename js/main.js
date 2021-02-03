@@ -33,6 +33,7 @@ document.body.appendChild(boxDiv);
 let inputBox = document.createElement("input");
 inputBox.id = "gridSize";
 inputBox.classList.add('divide')
+inputBox.placeholder = 'Grid Size..'
 upperDiv.appendChild(inputBox);
 
 let buttonGrid = document.createElement("button");
