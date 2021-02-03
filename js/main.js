@@ -17,10 +17,12 @@ document.body.appendChild(upperDiv);
 let askUser = document.createElement("button");
 askUser.id = "clear";
 askUser.textContent = "Clear";
+askUser.classList.add('divide')
 upperDiv.appendChild(askUser);
 
 let randomColor = document.createElement("button");
 randomColor.id = "randomColor";
+randomColor.classList.add('divide')
 randomColor.textContent = "Random Color";
 upperDiv.appendChild(randomColor);
 
@@ -30,11 +32,13 @@ document.body.appendChild(boxDiv);
 
 let inputBox = document.createElement("input");
 inputBox.id = "gridSize";
+inputBox.classList.add('divide')
 upperDiv.appendChild(inputBox);
 
 let buttonGrid = document.createElement("button");
 buttonGrid.id = "buttons";
 buttonGrid.textContent = "Change Size";
+buttonGrid.classList.add('divide')
 upperDiv.appendChild(buttonGrid);
 
 //Get a Grid Size from user
@@ -70,9 +74,9 @@ function createDiv(userInput, color) {
   boxDiv.appendChild(smallDiv);
   let sum;
   if (userInput === undefined) {
-    sum = 798 / 16;
+    sum = 776  / 16;
   } else {
-    sum = 798 / Number(userInput);
+    sum = 776 / Number(userInput);
   }
 
   smallDiv.style.height = sum + "px";

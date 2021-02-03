@@ -3,61 +3,71 @@
 /*******************************************/
 
 /* Box Model Hack */
-*{
+* {
   box-sizing: border-box;
 }
 
 /******************************************
 /* LAYOUT
 /*******************************************/
-body{
- display: flex;
- justify-content: center;
- align-items: center;
- flex-direction: column;
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-image: radial-gradient( circle farthest-corner at 12.3% 19.3%,  rgba(85,88,218,1) 0%, rgba(95,209,249,1) 100.2% );
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
-
-button{
+button {
   width: 10rem;
   height: 3rem;
-  margin: 30px;
+  border: none;
   border-radius: 2rem;
   outline: none;
+  text-decoration: none;
+  font-size: 1.2rem;
+  border: 3px solid rgb(85, 85, 85);
+  color: black;
 }
 
-div{
+.innerBox {
   background: white;
+  border: 1px solid grey;
 }
 
-.innerBox{
-  background: white;
-  border: 1px solid black;
-}
-
-#outerBox{
+#outerBox {
   margin: 0 auto;
   height: 800px;
   width: 800px;
-  border: 1px solid black;
+  border: 12px solid purple;
+  border-radius: 1rem;
   display: flex;
-  flex-flow: row wrap;  
+  flex-flow: row wrap;
 }
 
-input{
+input {
   height: 3rem;
+  width: 10rem;
   border-radius: 3rem;
   text-align: center;
+  outline: none;
+  font-size: 1.2rem;
+  color: black;
+  border: 3px solid rgb(85, 85, 85);
 }
 
-#upperdiv{
+#upperdiv {
   display: flex;
   width: 100%;
   justify-content: center;
   align-items: center;
 }
 
-
+.divide {
+  margin: 2rem;
+}
 
 /******************************************
 /* ADDITIONAL STYLES
