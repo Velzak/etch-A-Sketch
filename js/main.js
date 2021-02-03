@@ -44,7 +44,7 @@ upperDiv.appendChild(buttonGrid);
 //Get a Grid Size from user
 let userInput;
 
-if (userInput === undefined){
+if (userInput === undefined || Number(!isFinite(userInput))){
     userInput = 16
 } else {
     userInput = document.querySelector("#gridSize").value;
@@ -103,7 +103,7 @@ function createGrid(userInput, color) {
   let width = userInput;
   let height = userInput - 1;
 
-  if (userInput === undefined) {
+  if (userInput === undefined || Number(!isFinite(userInput))) {
     for (let i = 0; i < 16; i++) {
       for (let x = 0; x < 15; x++) {
         createDiv(16, color);
